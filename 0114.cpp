@@ -4,8 +4,8 @@ int main()
 	int a;
 	scanf("%d",&a);
 	if(a%2 == 1)
-		printf("%d是奇数\n",a);
+		printf("%d脢脟脝忙脢媒\n",a);//杈撳嚭濂囨暟
 	else 
-		printf("%d是偶数\n",a);
+		printf("%d脢脟脜录脢媒\n",a);//杈撳嚭鍋舵暟
 	return 0;
 }
