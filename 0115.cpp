@@ -3,7 +3,7 @@ int main()
 {
 	int a;
 	a=0;
-	printf("1-100以内的奇数有\n");
+	printf("1-100脪脭脛脷碌脛脝忙脢媒脫脨\n");//printf("1-100浠ュ唴鐨勫鏁版湁\n");
 	for(a=1;a<=100;a++)
 	{
 		if(a%2 == 1)
