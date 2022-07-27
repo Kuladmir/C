@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include<stdio.h>//比较两个数字大小
 int main()
 {
 	int a,b,c;
