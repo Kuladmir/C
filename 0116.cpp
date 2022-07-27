@@ -1,44 +1,44 @@
-#include<stdio.h>
+#include<stdio.h>//è¾“å…¥æ•°å­—å¼¹å‡ºæ˜ŸæœŸï¼Œä¸¤ç§å½¢å¼
 int main()
 {
 	int a,b;
-	printf("ÊäÈë1´ú±í1Ä£Ê½£¬ÊäÈë2´ú±í2Ä£Ê½\n");
+	printf("è¾“å…¥1ä»£è¡¨1æ¨¡å¼ï¼Œè¾“å…¥2ä»£è¡¨2æ¨¡å¼\n");
 	scanf("%d",&a);
 	if(a==1)
 	{
-		printf("ÊäÈëĞÇÆÚÊı\n");
+		printf("è¾“å…¥æ˜ŸæœŸæ•°\n");
 		scanf("%d",&b);
 		switch(b)
 		{
 		case 1:
-			printf("ĞÇÆÚÒ»\n");
+			printf("æ˜ŸæœŸä¸€\n");
 			break;
 		case 2:
-			printf("ĞÇÆÚ¶ş\n");
+			printf("æ˜ŸæœŸäºŒ\n");
 			break;
 		case 3:
-			printf("ĞÇÆÚÈı\n");
+			printf("æ˜ŸæœŸä¸‰\n");
 			break;
 		case 4:
-			printf("ĞÇÆÚËÄ\n");
+			printf("æ˜ŸæœŸå››\n");
 			break;
 		case 5:
-			printf("ĞÇÆÚÎå\n");
+			printf("æ˜ŸæœŸäº”\n");
 			break;
 		case 6:
-			printf("ĞÇÆÚÁù\n");
+			printf("æ˜ŸæœŸå…­\n");
 			break;
 		case 7:
-			printf("ĞÇÆÚÌì\n");
+			printf("æ˜ŸæœŸå¤©\n");
 			break;
 		default:
-			printf("ÊäÈë´íÎó\n");
+			printf("è¾“å…¥é”™è¯¯\n");
 			break;
 		}
 	}
 	else
 	{
-		printf("ÊäÈëĞÇÆÚÊı\n");
+		printf("è¾“å…¥æ˜ŸæœŸæ•°\n");
 		scanf("%d",&b);
 		switch(b)
 		{
@@ -47,14 +47,14 @@ int main()
 		case 3:
 		case 4:
 		case 5:
-			printf("¹¤×÷ÈÕ\n");
+			printf("å·¥ä½œæ—¥\n");
 			break;
 		case 6:
 		case 7:
-			printf("ĞİÏ¢ÈÕ\n");
+			printf("ä¼‘æ¯æ—¥\n");
 			break;
 		default:
-			printf("ÊäÈë´íÎó\n");
+			printf("è¾“å…¥é”™è¯¯\n");
 			break;
 		}
 	}
