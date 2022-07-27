@@ -1,37 +1,37 @@
-#include<stdio.h>
+#include<stdio.h>//é€‰æ‹©è¿›è¡Œ+ - * / è¿ç®—
 int main()
 {
 	double a,b,c;
 	int d,e,g;
 	char f;
-	printf("ÊäÈë¼ÆËã·½Ê½£º+ - * / !\n");
+	printf("è¾“å…¥è®¡ç®—æ–¹å¼ï¼š+ - * / !\n");
 	scanf("%c",&f);
 	switch(f)
 	{
 	case '+':
 		{
-			printf("ÊäÈë¼ÓÊı\n");
+			printf("è¾“å…¥åŠ æ•°\n");
 			scanf("%lf%lf",&a,&b);
 			c=a+b;
 			printf("%lf\n",c);
 		}break;
 	case '-':
 		{
-			printf("ÊäÈë¼õÊı\n");
+			printf("è¾“å…¥å‡æ•°\n");
 			scanf("%lf%lf",&a,&b);
 			c=a-b;
 			printf("%lf\n",c);
 		}break;
 	case '*':
 		{
-			printf("ÊäÈë³ËÊı\n");
+			printf("è¾“å…¥ä¹˜æ•°\n");
 			scanf("%lf%lf",&a,&b);
 			c=a*b;
 			printf("%lf\n",c);
 		}break;
 	case '/':
 		{
-		printf("ÊäÈë³ıÊı\n");
+		printf("è¾“å…¥é™¤æ•°\n");
 		scanf("%lf%lf",&a,&b);
 		if(b==0)
 			printf("error\n");
@@ -43,7 +43,7 @@ int main()
 		}break;
 	case '!':
 		{
-			printf("ÊäÈëÒª¼ÆËãµÄÊı\n");
+			printf("è¾“å…¥è¦è®¡ç®—çš„æ•°\n");
 			scanf("%d",&e);
 			for(g=2,d=1;g<=e;g++)
 			{
