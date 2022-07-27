@@ -1,19 +1,19 @@
-#include<stdio.h>
+#include<stdio.h>//å¹´é¾„åˆ¤æ–­å¹´é¾„çŠ¶æ€
 int main()
 {
 	int a;
 	scanf("%d",&a);
 	if(a<18)
 	{
-		printf("Î´³ÉÄê\n");
+		printf("æœªæˆå¹´\n");
 	}
 	else if(a>=18 && a<=28)
-		printf("ÇàÄê\n");
+		printf("é’å¹´\n");
 	else if(a>28 && a<=40)
-		printf("×³Äê\n");
+		printf("å£®å¹´\n");
 	else if (a>40 && a<=60)
-		printf("ÖĞÄê\n");
+		printf("ä¸­å¹´\n");
 	else 
-		printf("ÀÏÄê\n");
+		printf("è€å¹´\n");
 	return 0;
 }
