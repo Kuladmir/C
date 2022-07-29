@@ -1,4 +1,4 @@
-#include<stdio.h>//分数求和
+#include<stdio.h>//鍒嗘暟姹傚拰
 int main()
 {
 	int i,d;
