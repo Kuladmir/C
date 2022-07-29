@@ -1,4 +1,4 @@
-#include<stdio.h>//Êä³ö1000-2000Ö®¼äµÄÈòÄê
+#include<stdio.h>//åˆ¤æ–­1000-2000ä¹‹é—´çš„é—°å¹´
 int main()
 {
 	int i;
