@@ -1,14 +1,14 @@
-#include<stdio.h>//鍒嗘暟姹傚拰
+#include<stdio.h>//分数求和
 int main()
 {
 	int i,d;
-	int c;
+	double c;
 	for(i=1,c=0,d=1;i<=100;i++)
 	{
-		c=c+1/i*d;
+		c=c+1.0/i*d;
 		d=d*(-1);
 	}
-	printf("%d\n",c);
+	printf("%lf\n",c);
 	return 0;
 }
 
