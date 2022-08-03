@@ -1,15 +1,22 @@
 #include<stdio.h>
-void year(int a)
+int se(int a)
 {
-	if((a%4==0 && a%100!=0) || (a%400==0))
-		printf("ÈòÄê\n");
+	if(a>1)//a=3->3*se(2)->2*se(1)->1
+		return a*se(a-1);
+	else if(a==1)
+		return 1;
 	else
-		printf("Æ½Äê\n");
+	{
+		printf("error\n");
+		return 0;
+	}
 }
 int main()
 {
-	int a;
+	int a,b;
 	scanf("%d",&a);
-	year(a);
+	b=se(a);
+	printf("%d\n",b);
 	return 0;
 }
+
