@@ -5,7 +5,7 @@ int main()
 {
 	int a,b,c;
 	scanf("%d",&a);
-	printf("请稍等，正在计算\n");
+	printf("脟毛脡脭碌脠拢卢脮媒脭脷录脝脣茫\n");//printf("璇疯緭鍏ヤ竴涓暟瀛梊n");
 	Sleep(2000);
 	for(b=2;b<=sqrt(a);b++)
 	{
