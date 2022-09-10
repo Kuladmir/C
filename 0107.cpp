@@ -12,7 +12,7 @@ void swap(int a, int b)
 int main()
 {
 	int a, b;
-	printf("ÇëÊäÈëÁ½¸öÊý:>");
+	printf("Ã‡Ã«ÃŠÃ¤ÃˆÃ«ÃÂ½Â¸Ã¶ÃŠÃ½:>");//è¯·è¾“å…¥ä¸¤ä¸ªæ•°
 	scanf("%d%d", &a, &b);
 	swap(a, b);
 	return 0;
