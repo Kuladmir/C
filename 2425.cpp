@@ -19,7 +19,7 @@ int main()
 	manu();
 	double aJ[10], aC[10], kb[10],bm[10],tJ[10],tC[10],V[10],W[10],Q[10],z[10];
 	double U[10], Nu[10], Re[10], Pr[10];
-	double S, A,rou[10], cp[10], u[10], n[10];
+	double S, A,rou, cp, u, n;
 	int i, j, cho;
 	do
 	{
@@ -31,10 +31,10 @@ int main()
 		printf("请依次输入%d个出口温度:>", i);
 		for (j = 0; j < i; j++)
 			scanf("%lf", &aC[j]);
-		printf("请以此输入%d个孔板压差(kpa):>", i);
+		printf("请依次输入%d个孔板压差(kpa):>", i);
 		for (j = 0; j < i; j++)
 			scanf("%lf", &kb[j]);
-		printf("请以此输入%d个壁面温度:>", i);
+		printf("请依次输入%d个壁面温度:>", i);
 		for (j = 0; j < i; j++)
 			scanf("%lf", &bm[j]);
 		S = PI * d2 * L2;//计算关内换热面积
@@ -45,30 +45,26 @@ int main()
 			printf("平均温度依次为：%lf  ",tJ[j]);
 		}
 		printf("\n");
-		printf("请查表依次输入线性估算后的空气的密度:>");
-		for (j = 0; j < i; j++)
-			scanf("%lf", &rou[j]);
-		printf("请查表依次输入线性估算后的定压比热容:>");
-		for (j = 0; j < i; j++)
-			scanf("%lf", &cp[j]);
-		printf("请查表依次输入线性估算后的粘度，不需要输入后面的比例:>");
-		for (j = 0; j < i; j++)
-			scanf("%lf", &u[j]);
-		printf("请查表依次输入线性估算后的导热系数，不需要输入后面的比例:>");
-		for (j = 0; j < i; j++)
-			scanf("%lf", &n[j]);
+		printf("请查表依次输入线性估算后的空气的密度(kg/m3):>");
+			scanf("%lf", &rou);
+		printf("请查表依次输入线性估算后的定压比热容(kJ/(kg * K)):>");
+			scanf("%lf", &cp);
+		printf("请查表依次输入线性估算后的粘度(10^-5 Pa/s):>");
+			scanf("%lf", &u);
+		printf("请查表依次输入线性估算后的导热系数(10^-2 W/(m * K)):>");
+			scanf("%lf", &n);
 		for (j = 0; j < i; j++)
 		{
 			tJ[j] = (aJ[j] + aC[j]) / 2;//计算平均温度
 			tC[j] = (bm[j] - tJ[j]);//计算温差
 			V[j] = C0 * 3600 * A * (sqrt(2 * kb[j] * 1000 / 1.029));//计算平均流量
-			W[j] = V[j] * rou[j] / 3600;//计算质量流量
-			Q[j] = W[j] * cp[j] * (aC[j] - aJ[j]);//计算传热速率
+			W[j] = V[j] * rou / 3600;//计算质量流量
+			Q[j] = W[j] * cp * (aC[j] - aJ[j]);//计算传热速率
 			z[j] = Q[j]*1000 / (S * tC[j]);//计算对流传热系数
 			U[j] = V[j] / (A * 3600);//计算流速
-			Nu[j] = z[j] * d2 / (n[j] * 0.01);//计算Nu
-			Re[j] = U[j] * d2 * rou[j] * 100000 / u[j];//计算Re
-			Pr[j] = cp[j] * u[j] * 0.001 / n[j];//计算Pr
+			Nu[j] = z[j] * d2 / (n * 0.01);//计算Nu
+			Re[j] = U[j] * d2 * rou * 100000 / u;//计算Re
+			Pr[j] = cp * u * 0.001 / n;//计算Pr
 		}
 		printf("----------------------------------------------------------\n");
 		printf("换热面积S=%lf   流量计内表面积A=%lf\n", S, A);
@@ -120,49 +116,47 @@ int main()
 		{
 			printf("请输入要计算的普通管数据的组数（1-6）:>");
 			scanf("%d", &i);
-			printf("请依次输入%d个进气温度:>", i);
+			printf("请依次输入%d个进气温度(℃):>", i);
 			for (j = 0; j < i; j++)
 				scanf("%lf", &aJ[j]);
-			printf("请依次输入%d个出口温度:>", i);
+			printf("请依次输入%d个出口温度(℃):>", i);
 			for (j = 0; j < i; j++)
 				scanf("%lf", &aC[j]);
 			printf("请以此输入%d个孔板压差(kpa):>", i);
 			for (j = 0; j < i; j++)
 				scanf("%lf", &kb[j]);
-			printf("请以此输入%d个壁面温度:>", i);
+			printf("请以此输入%d个壁面温度(℃):>", i);
 			for (j = 0; j < i; j++)
 				scanf("%lf", &bm[j]);
 			S = PI * d3 * L2;//计算管内换热面积
 			A = PI * d0 * d0 * 0.25;//计算流量计内表面积
+			printf("平均温度依次为(℃):", tJ[j]);
 			for (j = 0; j < i; j++)
 			{
 				tJ[j] = (aJ[j] + aC[j]) / 2;
-				printf("平均温度依次为： % lf  ",tJ[j]);
+				printf("%lf  ", tJ[j]);
 			}
-			printf("请查表依次输入线性估算后的空气的密度:>");
-			for (j = 0; j < i; j++)
-				scanf("%lf", &rou[j]);
-			printf("请查表依次输入线性估算后的定压比热容:>");
-			for (j = 0; j < i; j++)
-				scanf("%lf", &cp[j]);
-			printf("请查表依次输入线性估算后的粘度，不需要输入后面的比例:>");
-			for (j = 0; j < i; j++)
-				scanf("%lf", &u[j]);
-			printf("请查表依次输入线性估算后的导热系数，不需要输入后面的比例:>");
-			for (j = 0; j < i; j++)
-				scanf("%lf", &n[j]);
+			printf("\n");
+			printf("请查表依次输入线性估算后的空气的密度(kg/m3):>");
+				scanf("%lf", &rou);
+			printf("请查表依次输入线性估算后的定压比热容(kJ/(kg * K)):>");
+				scanf("%lf", &cp);
+			printf("请查表依次输入线性估算后的粘度，不需要输入后面的比例(10^-5 Pa/s):>");
+				scanf("%lf", &u);
+			printf("请查表依次输入线性估算后的导热系数，不需要输入后面的比例(10^-2 W/(m * K)):>");
+				scanf("%lf", &n);
 			for (j = 0; j < i; j++)
 			{
 				tJ[j] = (aJ[j] + aC[j]) / 2;//计算平均温度
 				tC[j] = (bm[j] - tJ[j]);//计算温差
 				V[j] = C0 * 3600 * A * (sqrt(2 * kb[j] * 1000 / 1.029));//计算平均流量
-				W[j] = V[j] * rou[j] / 3600;//计算质量流量
-				Q[j] = W[j] * cp[j] * (aC[j] - aJ[j]);//计算传热速率
+				W[j] = V[j] * rou / 3600;//计算质量流量
+				Q[j] = W[j] * cp * (aC[j] - aJ[j]);//计算传热速率
 				z[j] = Q[j] * 1000 / (S * tC[j]);//计算对流传热系数
 				U[j] = V[j] / (A * 3600);//计算流速
-				Nu[j] = z[j] * d3 / (n[j] * 0.01);//计算Nu
-				Re[j] = U[j] * d3 * rou[j] * 100000 / u[j];//计算Re
-				Pr[j] = cp[j] * u[j] * 0.001 / n[j];//计算Pr
+				Nu[j] = z[j] * d3 / (n * 0.01);//计算Nu
+				Re[j] = U[j] * d3 * rou * 100000 / u;//计算Re
+				Pr[j] = cp * u * 0.001 / n;//计算Pr
 			}
 			printf("----------------------------------------------------------\n");
 			printf("换热面积S=%lf   流量计内表面积A=%lf\n", S, A);
