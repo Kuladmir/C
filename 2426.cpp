@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
-#define R 998
-#define m 0.0009469
+//#define R 998
+//#define m 0.0009469
 #define d1 0.008
 #define d2 0.01
 #define L1 1.68
@@ -13,12 +13,20 @@ int main()
 {
 	double u[20], p[20], n[20], Re[20];
 	double q[20], h[20];
+	double R, m;
 	int i, j, k;
-	printf("先计算光滑管，再计算粗糙管:>");
-	printf("先计算高度差下的数据，再计算压差下的数据\n");
-	printf("密度998kg/m3，黏度0.9469*0.001pa*s，重力加速度9.81N/m\n");
-	printf("光滑管管径d1=0.008m,管长L1=1.68m；粗糙管管径d2=0.01m,管长L2=1.675m\n");
+	printf("			本程序仅可用来计算实验1测定数据\n");
+	printf("先计算光滑管，再计算粗糙管。");
+	printf("先计算高度差下的数据，再计算压差下的数据\n");	
+	printf("这是本程序默认采取的常数：\n");
+	printf("重力加速度9.81N/m，");
+	printf("光滑管管径d1=0.008m，管长L1=1.68m，粗糙管管径d2=0.01m，管长L2=1.675m");
 	printf("Π=3.14，局部阻力d3=0.015m\n");
+	printf("请输入实验温度下的流体密度(kg/m3):>");
+	scanf("%lf", &R);
+	printf("请输入实验温度下的流体粘度(10^-3 Pa*s):>");
+	scanf("%lf", &m);	
+	printf("==========================\n");
 	printf("请输入要计算的组数(光滑管+高度差):>");
 	scanf("%d", &i);
 	printf("请输入流量(L/h):>");
@@ -38,10 +46,10 @@ int main()
 		n[j] = 2 * d1 * p[j] / (R * L1 * u[j] * u[j]);
 		Re[j] = d1 * u[j] * R / m;
 	}
-	printf("流速为:>");
+	printf("流速为(m/s):>");
 	for (j = 0; j < i; j++)
 		printf("%lf  ", u[j]);
-	printf("\n压差为:>");
+	printf("\n压差为(pa):>");
 	for (j = 0; j < i; j++)
 		printf("%lf  ", p[j]);
 	printf("\n摩擦系数:>");
@@ -51,6 +59,7 @@ int main()
 	for (j = 0; j < i; j++)
 		printf("%lf  ", Re[j]);
 	printf("\n");
+	printf("==========================\n");
 	//光滑管+压差
 	printf("请输入要计算的组数(光滑管+压差):>");
 	scanf("%d", &i);
@@ -70,10 +79,10 @@ int main()
 		n[j] = 2 * d1 * h[j] *1000 / (R * L1 * u[j] * u[j]);
 		Re[j] = d1 * u[j] * R / m;
 	}
-	printf("流速为:>");
+	printf("流速为(m/s):>");
 	for (j = 0; j < i; j++)
 		printf("%lf  ", u[j]);
-	printf("\n压差为:>");
+	printf("\n压差为(kpa):>");
 	for (j = 0; j < i; j++)
 		printf("%lf  ", h[j]);
 	printf("\n摩擦系数:>");
@@ -83,6 +92,7 @@ int main()
 	for (j = 0; j < i; j++)
 		printf("%lf  ", Re[j]);
 	printf("\n");
+	printf("==========================\n");
 	//粗糙管
 	printf("请输入要计算的组数(粗糙管+高度差):>");
 	scanf("%d", &i);
@@ -103,10 +113,10 @@ int main()
 		n[j] = 2 * d2 * p[j] / (R * L2 * u[j] * u[j]);
 		Re[j] = d2 * u[j] * R / m;
 	}
-	printf("流速为:>");
+	printf("流速为(m/s):>");
 	for (j = 0; j < i; j++)
 		printf("%lf  ", u[j]);
-	printf("\n压差为:>");
+	printf("\n压差为(pa):>");
 	for (j = 0; j < i; j++)
 		printf("%lf  ", p[j]);
 	printf("\n摩擦系数:>");
@@ -116,6 +126,7 @@ int main()
 	for (j = 0; j < i; j++)
 		printf("%lf  ", Re[j]);
 	printf("\n");
+	printf("==========================\n");
 	//粗糙管+压差
 	printf("请输入要计算的组数(粗糙管+高度差):>");
 	scanf("%d", &i);
@@ -135,10 +146,10 @@ int main()
 		n[j] = 2 * d2 * h[j] * 1000 / (R * L2 * u[j] * u[j]);
 		Re[j] = d2 * u[j] * R / m;
 	}
-	printf("流速为:>");
+	printf("流速为(m/s):>");
 	for (j = 0; j < i; j++)
 		printf("%lf  ", u[j]);
-	printf("\n压差为:>");
+	printf("\n压差为(kpa):>");
 	for (j = 0; j < i; j++)
 		printf("%lf  ", h[j]);
 	printf("\n摩擦系数:>");
@@ -148,6 +159,7 @@ int main()
 	for (j = 0; j < i; j++)
 		printf("%lf  ", Re[j]);
 	printf("\n");
+	printf("==========================\n");
 	printf("请输入计算局部阻力组数:>");
 	scanf("%d", &i);
 	printf("请输入流量(L/h):>");
@@ -165,7 +177,7 @@ int main()
 		n[j] = R * g * (2 * p[j] * 0.01 - h[j] * 0.01);//压强降
 		Re[j] = 2 * n[j] / (R*u[j]*u[j]);//局部阻力系数
 	}
-	printf("流速为:>");
+	printf("流速为(m/s):>");
 	for (j = 0; j < i; j++)
 		printf("%lf  ", u[j]);
 	printf("\n近端压差(pa):>");
