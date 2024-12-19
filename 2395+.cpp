@@ -4,6 +4,7 @@ int main()
 {
 	char id[18];
 	int idi[18],i,j,n,g;
+	printf("本程序用来检测身份证号是否有效，请输入身份证号:>");
 	for(i=0;i<18;i++)
 		scanf("%c",&id[i]);
 	for(i=0;i<17;i++)
@@ -14,79 +15,79 @@ int main()
 	if(n==0)
 	{
 		if(g==49)
-			printf("��Ч\n");
+			printf("有效\n");
 		else
-			printf("��Ч\n");
+			printf("无效\n");
 	}
 	if(n==1)
 	{
 		if(g==48)
-			printf("��Ч\n");
+			printf("有效\n");
 		else
-			printf("��Ч\n");
+			printf("无效\n");
 	}
 	if(n==2)
 	{
 		if(g==88)
-			printf("��Ч\n");
+			printf("有效\n");
 		else
-			printf("��Ч\n");
+			printf("无效\n");
 	}
 	if(n==3)
 	{
 		if(g==57)
-			printf("��Ч\n");
+			printf("有效\n");
 		else
-			printf("��Ч\n");
+			printf("无效\n");
 	}
 	if(n==4)
 	{
 		if(g==56)
-			printf("��Ч\n");
+			printf("有效\n");
 		else
-			printf("��Ч\n");
+			printf("无效\n");
 	}
 	if(n==5)
 	{
 		if(g==55)
-			printf("��Ч\n");
+			printf("有效\n");
 		else
-			printf("��Ч\n");
+			printf("无效\n");
 	}
 	if(n==6)
 	{
 		if(g==54)
-			printf("��Ч\n");
+			printf("有效\n");
 		else
-			printf("��Ч\n");
+			printf("无效\n");
 	}
 	if(n==7)
 	{
 		if(g==53)
-			printf("��Ч\n");
+			printf("有效\n");
 		else
-			printf("��Ч\n");
+			printf("无效\n");
 	}
 	if(n==8)
 	{
 		if(g==52)
-			printf("��Ч\n");
+			printf("有效\n");
 		else
-			printf("��Ч\n");
+			printf("无效\n");
 	}
 	if(n==9)
 	{
 		if(g==51)
-			printf("��Ч\n");
+			printf("有效\n");
 		else
-			printf("��Ч\n");
+			printf("无效\n");
 	}
 	if(n==10)
 	{
 		if(g==50)
-			printf("��Ч\n");
+			printf("有效\n");
 		else
-			printf("��Ч\n");
+			printf("无效\n");
 	}
 	return 0;
 }
