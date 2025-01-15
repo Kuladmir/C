@@ -137,6 +137,7 @@ void begin()
 	char judge;
 	do
 	{
+		printf("--------------------分割线--------------------\n");
 		printf("现在开始进行计算，请输入算法代码   :>  ");
 		scanf("%d", &bili);
 		switch (bili)
@@ -235,8 +236,8 @@ void begin()
 		}break;
 		case 8://求对数8
 		{
+			printf("要算自然对数（ln），则第二个数 c 输入2.718，要算常用对数（lg），则第二个数 c 输入10\n");
 			printf("输入真数和底数 a,c   :>  ");
-			printf("要算自然对数（ln），把c输入2.718，要算常用对数（lg），把c输入2.7183\n");
 			scanf("%lf %lf", &a, &c);
 			if (c == 2.718)
 			{
@@ -245,7 +246,7 @@ void begin()
 			}
 			else
 			{
-				if (c == 2.7183)
+				if (c == 10)
 				{
 					d = log10(a);
 					printf("最后结果为%lf\n", d);
@@ -472,45 +473,57 @@ void begin()
 		case 19://求椭圆相交弦长19
 		{
 			printf("输入一般直线方程Ax+By+C=0中，定义直线的三个参数 A  B  C   :>  ");
-			scanf("%lf %lf %lf ", &d, &e, &f);
-			printf("输入一般椭圆方程x2/a2+y2/b2=1中，定义椭圆的两个参数 a  b   :>  ");
-			scanf("%lf %lf", &g, &h);
-			if (e == 0)
+			scanf("%lf%lf%lf", &d, &e, &f);
+			printf("输入一般椭圆方程x2/a2+y2/b2=1中，定义椭圆的两个参数 a^2  b^2   :>  ");
+			scanf("%lf%lf", &g, &h);
+			if (e == 0)//直线斜率不存在
 			{
 				a = f / d * (-1);
-				if (a < -g || a > g)
-					printf("相交弦长不存在，因为%d=%d与椭圆不相交\n",d,-f);
+				if (a < (-1) * sqrt(g) || a > sqrt(g))
+					printf("相交弦长不存在，因为直线%lf x=%lf与椭圆不相交\n",d,-f);
 				else
 				{
-					if (a == (-g) || a == g)
-						printf("相交弦长不存在，因为%d=%d与椭圆相切\n", d, -f);
+					if (a == (-1) *sqrt(g) || a == sqrt(g))
+						printf("相交弦长不存在，因为直线%lf x=%lf与椭圆相切\n", d, -f);
 					else
 					{
-						i = h * h * f * f / (g * g * d * d);
-						j = h * h - i;
-						k = sqrt(j);
+						//如果Ax+C=0和直线相交，则必然会产生两个对称的交点，根据两个交点的y坐标可以得到距离
+						//根据推算，发现距离d = 2 * sqrt(b^2-[C^2 * b^2]/[a^2 * A^2])
+						i = h - (f * f * h) / (g * d * d);
+						k = sqrt(i);
 						l = 2 * k;
-						printf("相交弦长为:>  %lf\n", l);
+						printf("相交弦长为:>  %lf [2 * sqrt(%lf - (%lf^2 * %lf / %lf * %lf^2))]\n", l, h, f, h, g, d);
 					}
 				}
 			}
 			else
 			{
-				c = (4 * g * g * h * h * h * h * e * e * e * e + 4 * g * g * g * g * h * h * d * d * e * e - 4 * e * e * f * f * g * g * h * h) / (e * e * e * e);
-				if (c >= 0)
+				//此时直线斜率一定存在，联立方程组
+				//最后得到一个一元二次方程：(a^2*A^2/B^2+b^2) x^2 + (2*a^2*A*C/B^2) x + (a^2*C*2/B^2-a^2*b^2) = 0
+				//使用求根公式进行计算Δ=b^2-4ac
+				//b^2部分
+				//m = (4*g*g*d*d*f*f)/(e*e*e*e);
+				//4ac部分
+				//n = (4*g*g*d*d*f*f)/(e*e*e*e) - (4*g*g*d*d*h)/(e*e) + (4*g*h*f*f)/(e*e) - (4*g*h*h);
+				//b^2-4ac之后，有一些部分被抵消
+				m= (4 * g * g * d * d * h) / (e * e) - (4 * g * h * f * f) / (e * e) + (4 * g * h * h);
+				if (m > 0)
 				{
-					a = d / e * (-1);
+					//使用弦长公式计算l = sqrt(1 + k^2)* sqrt((x1+x2)^2 - 4 * (x1 * x2) )
+					//sqrt(1+k^2)部分
+					a = d / e ;
 					c = 1 + a * a;
 					i = sqrt(c);
-					j = (2 * d * f * g * g) / (e * e * h * h + d * d * g * g);//x1+x2
-					k = (g * g * f * f - g * g * e * e) / (h * h * e * e + d * d * g * g);//x1*x2
+					//sqrt((x1+x2)^2 - 4 * (x1 * x2)部分
+					j = (2 * d * f * g) / (e * e * h + d * d * g);//x1+x2
+					k = (g * f * f - g * h * e * e) / (h * e * e + d * d * g);//x1*x2
 					l = j * j - 4 * k;
 					m = sqrt(l);
 					n = i * m;
-					printf("相交弦长为:>  %lf\n", n);
+					printf("相交弦长为:>  %lf \n", n);
 				}
 				else
-					printf("相交弦长为0，因为\n");
+					printf("相交弦长不存在，因为直线和椭圆相切或相离\n");
 			}
 		}break;
 		case 20://计算体积20
