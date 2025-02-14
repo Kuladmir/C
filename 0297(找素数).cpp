@@ -1,4 +1,4 @@
-//ÕÒËØÊı
+//æ‰¾ç´ æ•°
 #define N 1
 #define M 100
 #include<stdio.h>
