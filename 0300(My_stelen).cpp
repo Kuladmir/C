@@ -1,4 +1,4 @@
-//My_strlen¼ÆËã×Ö·û´®
+//My_strlenæµ‹è¯•
 #include<stdio.h>
 void My_strlen1(char* arr)
 {
