@@ -1,4 +1,4 @@
-//´òÓ¡³Ë·¨±í
+//ä¹˜æ³•è¡¨
 #define N 12
 #include<stdio.h>
 int main()
